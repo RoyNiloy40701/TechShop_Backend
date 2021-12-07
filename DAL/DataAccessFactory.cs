@@ -19,5 +19,11 @@ namespace DAL
 
             return new EmployeeRepo(db);
         }
+
+        public static IRepository<Product, int> ProductDataAccess()
+        {
+
+            return new ProductRepo(db);
+        }
     }
 }
