@@ -25,5 +25,11 @@ namespace DAL
 
             return new ProductRepo(db);
         }
+
+        public static IRepository<Category, int> CategoryDataAccess()
+        {
+
+            return new CategoryRepo(db);
+        }
     }
 }

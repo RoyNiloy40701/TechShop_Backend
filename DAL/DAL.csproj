@@ -60,6 +60,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoryRepo.cs" />
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EmployeeRepo.cs" />
     <Compile Include="Customer.cs">
