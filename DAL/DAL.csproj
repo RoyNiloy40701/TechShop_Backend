@@ -102,6 +102,7 @@
     <Compile Include="Shop.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="ShopRepo.cs" />
     <Compile Include="Voucher.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>

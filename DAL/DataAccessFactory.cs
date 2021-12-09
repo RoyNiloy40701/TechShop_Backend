@@ -31,5 +31,10 @@ namespace DAL
 
             return new CategoryRepo(db);
         }
+        public static IRepository<Shop, int> ShopDataAccess()
+        {
+
+            return new ShopRepo(db);
+        }
     }
 }
