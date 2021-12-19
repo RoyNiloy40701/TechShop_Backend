@@ -24,7 +24,7 @@ namespace DAL
         {
             return db.Employees.ToList();
         }
-
+       
         public Employee Get(int id)
         {
             return db.Employees.FirstOrDefault(e => e.EId == id);

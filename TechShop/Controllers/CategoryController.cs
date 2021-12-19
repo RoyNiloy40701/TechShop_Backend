@@ -21,6 +21,16 @@ namespace TechShop.Controllers
                 return CategoryService.GetAll();
             }
 
+
+            [Route("api/Category/get/{id}")]
+            [HttpGet]
+            public CategoryModel Get(int id)
+            {
+               return CategoryService.Get(id);
+            }
+
+
+
             [Route("api/Category/Names")]
             [HttpGet]
             public List<string> GetNames()

@@ -18,7 +18,13 @@ namespace BLL
             var data = mapper.Map<List<ShopModel>>(DataAccessFactory.ShopDataAccess().GetAll());
             return data;
         }
-
+        public static ShopModel Get(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Shop, ShopModel>());
+            var mapper = new Mapper(config);
+            var data = mapper.Map<ShopModel>(DataAccessFactory.ShopDataAccess().Get(id));
+            return data;
+        }
 
         public static List<String> GetNames()
         {

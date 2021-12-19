@@ -20,6 +20,13 @@ namespace TechShop.Controllers
             return ProductService.GetAll();
         }
 
+        [Route("api/Product/get/{id}")]
+        [HttpGet]
+        public ProductModel Get(int id)
+        {
+            return ProductService.Get(id);
+        }
+
         [Route("api/Product/Names")]
         [HttpGet]
         public List<string> GetNames()

@@ -21,12 +21,22 @@ namespace TechShop.Controllers
             return EmployeeService.GetAll();
         }
 
+
+        [Route("api/Employee/get/{id}")]
+        [HttpGet]
+        public EmployeeModel Get(int id)
+        {
+            return EmployeeService.Get(id);
+        }
+
+
         [Route("api/Employee/Names")]
         [HttpGet]
         public List<string> GetNames()
         {
             return EmployeeService.GetNames();
         }
+
 
         [Route("api/Employee/delete/{id}")]
         [HttpPost]

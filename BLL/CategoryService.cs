@@ -19,6 +19,14 @@ namespace BLL
             return data;
         }
 
+        public static CategoryModel Get(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Category, CategoryModel>());
+            var mapper = new Mapper(config);
+            var data = mapper.Map<CategoryModel>(DataAccessFactory.CategoryDataAccess().Get(id));
+            return data;
+        }
+
 
         public static List<String> GetNames()
         {

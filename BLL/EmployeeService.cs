@@ -19,8 +19,14 @@ namespace BLL
             var data = mapper.Map<List<EmployeeModel>>(DataAccessFactory.EmployeeDataAccess().GetAll());
             return data;
         }
-       
-
+        public static EmployeeModel Get(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Employee, EmployeeModel>());
+            var mapper = new Mapper(config);
+            var data = mapper.Map<EmployeeModel>(DataAccessFactory.EmployeeDataAccess().Get(id));
+            return data;
+        }
+      
         public static List<String>GetNames()
         {
 
