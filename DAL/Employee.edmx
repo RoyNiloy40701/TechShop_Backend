@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="techshopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -18,7 +18,7 @@
           <Property Name="AdminPicture" Type="image" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'techshop-DB.dbo.Bonus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'techshop.dbo.Bonus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Bonus">
           <Key>
             <PropertyRef Name="BonusId" />
@@ -56,7 +56,21 @@ warning 6002: The table/view 'techshop-DB.dbo.Bonus' does not have a primary key
           <Property Name="CAddress" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CPhone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CPicture" Type="image" />
-          <Property Name="VouId" Type="int" Nullable="false" />
+          <Property Name="VouId" Type="int" />
+        </EntityType>
+        <EntityType Name="Delivaryman">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Name="Did" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DPhone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOrderid" Type="int" Nullable="false" />
+          <Property Name="DSalay" Type="int" Nullable="false" />
+          <Property Name="DSchedule" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -118,7 +132,7 @@ warning 6002: The table/view 'techshop-DB.dbo.Bonus' does not have a primary key
           <Property Name="PId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PBasicPrice" Type="int" Nullable="false" />
-          <Property Name="PCategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="PStock" Type="int" Nullable="false" />
           <Property Name="PDiscount" Type="int" Nullable="false" />
           <Property Name="PDescription" Type="varchar" MaxLength="50" Nullable="false" />
@@ -157,7 +171,7 @@ warning 6002: The table/view 'techshop-DB.dbo.Bonus' does not have a primary key
           </ReferentialConstraint>
         </Association>
         <Association Name="CustomToVoucher">
-          <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Voucher">
@@ -260,15 +274,16 @@ warning 6002: The table/view 'techshop-DB.dbo.Bonus' does not have a primary key
               <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="PCategoryId" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="techshopModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Delivaryman" EntityType="Self.Delivaryman" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -328,7 +343,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="techshopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -371,11 +386,25 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <Property Name="CAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="VouId" Type="Int32" Nullable="false" />
+          <Property Name="VouId" Type="Int32" />
           <NavigationProperty Name="Carts" Relationship="Self.CustomerCart" FromRole="Customer" ToRole="Cart" />
           <NavigationProperty Name="Voucher" Relationship="Self.CustomToVoucher" FromRole="Customer" ToRole="Voucher" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetailsOfCustomer" FromRole="Customer" ToRole="OrderDetails" />
           <NavigationProperty Name="Orders" Relationship="Self.OrderedByCustomer" FromRole="Customer" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Delivaryman">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Name="Did" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOrderid" Type="Int32" Nullable="false" />
+          <Property Name="DSalay" Type="Int32" Nullable="false" />
+          <Property Name="DSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -445,7 +474,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <Property Name="PId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PBasicPrice" Type="Int32" Nullable="false" />
-          <Property Name="PCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="PStock" Type="Int32" Nullable="false" />
           <Property Name="PDiscount" Type="Int32" Nullable="false" />
           <Property Name="PDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -518,12 +547,12 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
               <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="PCategoryId" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="CustomToVoucher">
-          <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Voucher">
@@ -611,6 +640,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <EntitySet Name="Carts" EntityType="Self.Cart" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Delivarymen" EntityType="Self.Delivaryman" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Managers" EntityType="Self.Manager" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
@@ -665,9 +695,9 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="techshopModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="Model.Admin">
+            <EntityTypeMapping TypeName="techshopModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
                 <ScalarProperty Name="AdminId" ColumnName="AdminId" />
                 <ScalarProperty Name="AdminName" ColumnName="AdminName" />
@@ -680,7 +710,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="Model.Cart">
+            <EntityTypeMapping TypeName="techshopModel.Cart">
               <MappingFragment StoreEntitySet="Cart">
                 <ScalarProperty Name="CartId" ColumnName="CartId" />
                 <ScalarProperty Name="CId" ColumnName="CId" />
@@ -690,7 +720,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Model.Category">
+            <EntityTypeMapping TypeName="techshopModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -698,7 +728,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="Model.Customer">
+            <EntityTypeMapping TypeName="techshopModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="CId" ColumnName="CId" />
                 <ScalarProperty Name="CName" ColumnName="CName" />
@@ -711,8 +741,23 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Delivarymen">
+            <EntityTypeMapping TypeName="techshopModel.Delivaryman">
+              <MappingFragment StoreEntitySet="Delivaryman">
+                <ScalarProperty Name="Did" ColumnName="Did" />
+                <ScalarProperty Name="DName" ColumnName="DName" />
+                <ScalarProperty Name="DEmail" ColumnName="DEmail" />
+                <ScalarProperty Name="DPassword" ColumnName="DPassword" />
+                <ScalarProperty Name="DPhone" ColumnName="DPhone" />
+                <ScalarProperty Name="DStatus" ColumnName="DStatus" />
+                <ScalarProperty Name="DOrderid" ColumnName="DOrderid" />
+                <ScalarProperty Name="DSalay" ColumnName="DSalay" />
+                <ScalarProperty Name="DSchedule" ColumnName="DSchedule" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="Model.Employee">
+            <EntityTypeMapping TypeName="techshopModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="EId" ColumnName="EId" />
                 <ScalarProperty Name="EName" ColumnName="EName" />
@@ -729,7 +774,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Managers">
-            <EntityTypeMapping TypeName="Model.Manager">
+            <EntityTypeMapping TypeName="techshopModel.Manager">
               <MappingFragment StoreEntitySet="Manager">
                 <ScalarProperty Name="MId" ColumnName="MId" />
                 <ScalarProperty Name="MName" ColumnName="MName" />
@@ -745,7 +790,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="Model.Order">
+            <EntityTypeMapping TypeName="techshopModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="OId" ColumnName="OId" />
                 <ScalarProperty Name="CId" ColumnName="CId" />
@@ -758,7 +803,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="Model.OrderDetail">
+            <EntityTypeMapping TypeName="techshopModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="OrderDetailsId" ColumnName="OrderDetailsId" />
                 <ScalarProperty Name="CId" ColumnName="CId" />
@@ -769,12 +814,12 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="techshopModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="PId" ColumnName="PId" />
                 <ScalarProperty Name="PName" ColumnName="PName" />
                 <ScalarProperty Name="PBasicPrice" ColumnName="PBasicPrice" />
-                <ScalarProperty Name="PCategoryId" ColumnName="PCategoryId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="PStock" ColumnName="PStock" />
                 <ScalarProperty Name="PDiscount" ColumnName="PDiscount" />
                 <ScalarProperty Name="PDescription" ColumnName="PDescription" />
@@ -788,7 +833,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shops">
-            <EntityTypeMapping TypeName="Model.Shop">
+            <EntityTypeMapping TypeName="techshopModel.Shop">
               <MappingFragment StoreEntitySet="Shop">
                 <ScalarProperty Name="ShopId" ColumnName="ShopId" />
                 <ScalarProperty Name="ShopName" ColumnName="ShopName" />
@@ -796,7 +841,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vouchers">
-            <EntityTypeMapping TypeName="Model.Voucher">
+            <EntityTypeMapping TypeName="techshopModel.Voucher">
               <MappingFragment StoreEntitySet="Voucher">
                 <ScalarProperty Name="VouId" ColumnName="VouId" />
                 <ScalarProperty Name="VouCode" ColumnName="VouCode" />
@@ -805,7 +850,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bonus">
-            <EntityTypeMapping TypeName="Model.Bonu">
+            <EntityTypeMapping TypeName="techshopModel.Bonu">
               <MappingFragment StoreEntitySet="Bonus">
                 <ScalarProperty Name="BonusId" ColumnName="BonusId" />
                 <ScalarProperty Name="BonusType" ColumnName="BonusType" />

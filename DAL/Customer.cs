@@ -28,7 +28,7 @@ namespace DAL
         public string CAddress { get; set; }
         public string CPhone { get; set; }
         public byte[] CPicture { get; set; }
-        public int VouId { get; set; }
+        public Nullable<int> VouId { get; set; }
     
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual Voucher Voucher { get; set; }

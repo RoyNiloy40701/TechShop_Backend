@@ -11,7 +11,7 @@ namespace BEL
         public int PId { get; set; }
         public string PName { get; set; }
         public int PBasicPrice { get; set; }
-        public int PCategoryId { get; set; }
+        public int CategoryId { get; set; }
         public int PStock { get; set; }
         public int PDiscount { get; set; }
         public string PDescription { get; set; }

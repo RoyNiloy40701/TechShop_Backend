@@ -61,9 +61,11 @@
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
     <Compile Include="CategoryRepo.cs" />
-    <Compile Include="DataAccessFactory.cs" />
-    <Compile Include="EmployeeRepo.cs" />
     <Compile Include="Customer.cs">
+      <DependentUpon>Employee.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="Delivaryman.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.Context.cs">
@@ -84,6 +86,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeRepo.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Manager.cs">
       <DependentUpon>Employee.tt</DependentUpon>
@@ -108,32 +111,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Employee.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Employee.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Employee.edmx.diagram">
       <DependentUpon>Employee.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Employee.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Employee.Context.cs</LastGenOutput>
       <DependentUpon>Employee.edmx</DependentUpon>
+      <LastGenOutput>Employee.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Employee.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Employee.edmx</DependentUpon>
       <LastGenOutput>Employee1.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
