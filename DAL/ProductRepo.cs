@@ -43,5 +43,10 @@ namespace DAL
         {
             return db.Products.ToList();
         }
+
+        public List<Product> GetEmp(int id)
+        {
+            return db.Products.ToList();
+        }
     }
 }

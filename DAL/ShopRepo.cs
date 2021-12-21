@@ -43,5 +43,9 @@ namespace DAL
         {
             return db.Shops.ToList();
         }
+        public List<Shop> GetEmp(int id)
+        {
+            return db.Shops.ToList();
+        }
     }
 }

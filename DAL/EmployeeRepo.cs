@@ -43,5 +43,9 @@ namespace DAL
             db.Employees.Remove(emp);
             db.SaveChanges();
         }
+        public List<Employee> GetEmp(int id)
+        {
+            return db.Employees.ToList();
+        }
     }
 }

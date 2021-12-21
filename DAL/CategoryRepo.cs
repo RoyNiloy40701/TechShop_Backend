@@ -44,5 +44,9 @@ namespace DAL
         {
             return db.Categories.ToList();
         }
+        public List<Category> GetEmp(int id)
+        {
+             return db.Categories.ToList();
+        }
     }
 }

@@ -68,6 +68,7 @@
     <Compile Include="Delivaryman.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="DeliveryManRepo.cs" />
     <Compile Include="Employee.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +98,7 @@
     <Compile Include="OrderDetail.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderRepo.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
@@ -106,6 +108,9 @@
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
     <Compile Include="ShopRepo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Employee.tt</DependentUpon>
+    </Compile>
     <Compile Include="Voucher.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>

@@ -36,6 +36,7 @@ namespace DAL
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Shop> Shops { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
         public DbSet<Bonu> Bonus { get; set; }
     }

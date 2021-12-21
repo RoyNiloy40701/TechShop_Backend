@@ -36,5 +36,10 @@ namespace DAL
 
             return new ShopRepo(db);
         }
+        public static IRepository<Order, int> OrderDataAccess()
+        {
+
+            return new OrderRepo(db);
+        }
     }
 }

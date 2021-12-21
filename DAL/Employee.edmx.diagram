@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="faf33cb1be02473ab376171437d50a80" Name="Diagram1">
+      <Diagram DiagramId="14d6c0ee826247549b56a7a0f3e4df23" Name="Diagram1">
         <EntityTypeShape EntityType="techshopModel.Admin" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Cart" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Category" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Customer" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="techshopModel.Delivaryman" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="techshopModel.Delivaryman" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Employee" Width="1.5" PointX="3.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Manager" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Order" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.OrderDetail" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Product" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="techshopModel.Shop" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="techshopModel.Shop" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="techshopModel.sysdiagram" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Voucher" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Bonu" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="techshopModel.CustomerCart" ManuallyRouted="false" />
@@ -24,6 +25,7 @@
         <AssociationConnector Association="techshopModel.CustomToVoucher" ManuallyRouted="false" />
         <AssociationConnector Association="techshopModel.OrderDetailsOfCustomer" ManuallyRouted="false" />
         <AssociationConnector Association="techshopModel.OrderedByCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="techshopModel.FK_Delivaryman_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="techshopModel.OrderConfirmedByEmp" ManuallyRouted="false" />
         <AssociationConnector Association="techshopModel.ProductAddedByManager" ManuallyRouted="false" />
         <AssociationConnector Association="techshopModel.OrderToOrderDetails" ManuallyRouted="false" />

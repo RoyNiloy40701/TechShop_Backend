@@ -23,5 +23,8 @@ namespace DAL
         public int DOrderid { get; set; }
         public int DSalay { get; set; }
         public string DSchedule { get; set; }
+        public Nullable<int> EId { get; set; }
+    
+        public virtual Employee Employee { get; set; }
     }
 }

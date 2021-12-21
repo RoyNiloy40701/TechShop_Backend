@@ -42,7 +42,7 @@ namespace TechShop.Controllers
         }
 
         [Route("api/Shop/add")]
-        [HttpPut]
+        [HttpPost]
 
         public void Add(ShopModel e)
         {

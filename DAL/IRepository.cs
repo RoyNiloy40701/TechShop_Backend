@@ -11,11 +11,13 @@ namespace DAL
         void Add(T e);
 
         List<T>GetAll();
+       
 
         T Get(ID id);
 
         void Edit(T e);
         void Delete(ID id);
+        List<T>GetEmp(ID id);
 
 
     }

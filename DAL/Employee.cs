@@ -16,6 +16,7 @@ namespace DAL
     {
         public Employee()
         {
+            this.Delivarymen = new HashSet<Delivaryman>();
             this.Orders = new HashSet<Order>();
         }
     
@@ -31,6 +32,7 @@ namespace DAL
         public int EPerformBonus { get; set; }
         public string ESchedule { get; set; }
     
+        public virtual ICollection<Delivaryman> Delivarymen { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
