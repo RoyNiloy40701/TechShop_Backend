@@ -40,7 +40,11 @@ namespace DAL
         }
         public List<Order> GetEmp(int id )
         {
-            return db.Orders.Where(e => e.EId == id ).ToList();
+            return db.Orders.Where(e => e.EId == id && (e.OrderStatus.ToLower()!="pending")).ToList();
+        }
+        public List<Order>GetCus(int id)
+        {
+            return db.Orders.Where(e => e.CId == id).ToList();
         }
 
         public List<Order> GetAll()

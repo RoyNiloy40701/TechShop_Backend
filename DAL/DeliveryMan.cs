@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Delivaryman
+    public partial class DeliveryMan
     {
         public int Did { get; set; }
         public string DName { get; set; }

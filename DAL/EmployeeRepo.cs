@@ -47,5 +47,9 @@ namespace DAL
         {
             return db.Employees.ToList();
         }
+        public List<Employee> GetCus(int id)
+        {
+            return db.Employees.ToList();
+        }
     }
 }

@@ -20,19 +20,26 @@ namespace TechShop.Controllers
             return OrderService.GetAll();
         }
 
-        /* [Route("api/Order/get/{id}")]
+         [Route("api/Order/get/{id}")]
           [HttpGet]
           public OrderModel Get(int id)
           {
               return OrderService.Get(id);
-          }*/
+          }
 
         
-        [Route("api/Order/get/{id}")]
+        [Route("api/Order/get/Emp/{id}")]
         [HttpGet]
         public List<OrderModel> GetEmp(int id)
         {
             return OrderService.GetEmp(id);
+        }
+
+        [Route("api/Order/get/Cus/{id}")]
+        [HttpGet]
+        public List<OrderModel> GetCus(int id)
+        {
+            return OrderService.GetCus(id);
         }
 
         [Route("api/Order/delete/{id}")]

@@ -41,5 +41,17 @@ namespace DAL
 
             return new OrderRepo(db);
         }
+    
+        public static IRepository<DeliveryMan, int> DeliveryManDataAccess()
+        {
+
+            return new DeliveryManRepo(db);
+        }
+        public static IRepository<Customer, int> CustomerDataAccess()
+        {
+
+            return new CustomerRepo(db);
+        }
+
     }
 }

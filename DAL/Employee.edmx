@@ -58,7 +58,7 @@ warning 6002: The table/view 'techshop.dbo.Bonus' does not have a primary key de
           <Property Name="CPicture" Type="image" />
           <Property Name="VouId" Type="int" />
         </EntityType>
-        <EntityType Name="Delivaryman">
+        <EntityType Name="DeliveryMan">
           <Key>
             <PropertyRef Name="Did" />
           </Key>
@@ -195,12 +195,12 @@ warning 6002: The table/view 'techshop.dbo.Bonus' does not have a primary key de
         </Association>
         <Association Name="FK_Delivaryman_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Delivaryman" Type="Self.Delivaryman" Multiplicity="*" />
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="EId" />
             </Principal>
-            <Dependent Role="Delivaryman">
+            <Dependent Role="DeliveryMan">
               <PropertyRef Name="EId" />
             </Dependent>
           </ReferentialConstraint>
@@ -306,7 +306,7 @@ warning 6002: The table/view 'techshop.dbo.Bonus' does not have a primary key de
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Delivaryman" EntityType="Self.Delivaryman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryMan" EntityType="Self.DeliveryMan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -332,7 +332,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="FK_Delivaryman_Employee" Association="Self.FK_Delivaryman_Employee">
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="Delivaryman" EntitySet="Delivaryman" />
+            <End Role="DeliveryMan" EntitySet="DeliveryMan" />
           </AssociationSet>
           <AssociationSet Name="OrderConfirmedByEmp" Association="Self.OrderConfirmedByEmp">
             <End Role="Employee" EntitySet="Employee" />
@@ -420,7 +420,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetailsOfCustomer" FromRole="Customer" ToRole="OrderDetails" />
           <NavigationProperty Name="Orders" Relationship="Self.OrderedByCustomer" FromRole="Customer" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Delivaryman">
+        <EntityType Name="DeliveryMan">
           <Key>
             <PropertyRef Name="Did" />
           </Key>
@@ -434,7 +434,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <Property Name="DSalay" Type="Int32" Nullable="false" />
           <Property Name="DSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EId" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Delivaryman_Employee" FromRole="Delivaryman" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Delivaryman_Employee" FromRole="DeliveryMan" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -451,7 +451,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <Property Name="EFastiveBonus" Type="Int32" Nullable="false" />
           <Property Name="EPerformBonus" Type="Int32" Nullable="false" />
           <Property Name="ESchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Delivarymen" Relationship="Self.FK_Delivaryman_Employee" FromRole="Employee" ToRole="Delivaryman" />
+          <NavigationProperty Name="DeliveryMen" Relationship="Self.FK_Delivaryman_Employee" FromRole="Employee" ToRole="DeliveryMan" />
           <NavigationProperty Name="Orders" Relationship="Self.OrderConfirmedByEmp" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Manager">
@@ -630,12 +630,12 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
         </Association>
         <Association Name="FK_Delivaryman_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Delivaryman" Type="Self.Delivaryman" Multiplicity="*" />
+          <End Role="DeliveryMan" Type="Self.DeliveryMan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="EId" />
             </Principal>
-            <Dependent Role="Delivaryman">
+            <Dependent Role="DeliveryMan">
               <PropertyRef Name="EId" />
             </Dependent>
           </ReferentialConstraint>
@@ -693,7 +693,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           <EntitySet Name="Carts" EntityType="Self.Cart" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Delivarymen" EntityType="Self.Delivaryman" />
+          <EntitySet Name="DeliveryMen" EntityType="Self.DeliveryMan" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Managers" EntityType="Self.Manager" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
@@ -729,7 +729,7 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="FK_Delivaryman_Employee" Association="Self.FK_Delivaryman_Employee">
             <End Role="Employee" EntitySet="Employees" />
-            <End Role="Delivaryman" EntitySet="Delivarymen" />
+            <End Role="DeliveryMan" EntitySet="DeliveryMen" />
           </AssociationSet>
           <AssociationSet Name="OrderConfirmedByEmp" Association="Self.OrderConfirmedByEmp">
             <End Role="Employee" EntitySet="Employees" />
@@ -799,9 +799,9 @@ FROM [dbo].[Bonus] AS [Bonus]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Delivarymen">
-            <EntityTypeMapping TypeName="techshopModel.Delivaryman">
-              <MappingFragment StoreEntitySet="Delivaryman">
+          <EntitySetMapping Name="DeliveryMen">
+            <EntityTypeMapping TypeName="techshopModel.DeliveryMan">
+              <MappingFragment StoreEntitySet="DeliveryMan">
                 <ScalarProperty Name="Did" ColumnName="Did" />
                 <ScalarProperty Name="DName" ColumnName="DName" />
                 <ScalarProperty Name="DEmail" ColumnName="DEmail" />

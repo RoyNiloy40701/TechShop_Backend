@@ -18,6 +18,9 @@ namespace DAL
         void Edit(T e);
         void Delete(ID id);
         List<T>GetEmp(ID id);
+        List<T> GetCus(ID id);
+
+
 
 
     }

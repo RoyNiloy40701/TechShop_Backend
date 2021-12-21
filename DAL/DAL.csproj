@@ -64,8 +64,9 @@
     <Compile Include="Customer.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRepo.cs" />
     <Compile Include="DataAccessFactory.cs" />
-    <Compile Include="Delivaryman.cs">
+    <Compile Include="DeliveryMan.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
     <Compile Include="DeliveryManRepo.cs" />

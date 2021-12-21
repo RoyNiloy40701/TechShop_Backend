@@ -25,6 +25,14 @@ namespace BLL
             var data = mapper.Map<List<OrderModel>>(DataAccessFactory.OrderDataAccess().GetEmp(id));
             return data;
         }
+        public static List<OrderModel> GetCus(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Order, OrderModel>());
+            var mapper = new Mapper(config);
+            var data = mapper.Map<List<OrderModel>>(DataAccessFactory.OrderDataAccess().GetCus(id));
+            return data;
+        }
+
         public static OrderModel Get(int id)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Order, OrderModel>());

@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="14d6c0ee826247549b56a7a0f3e4df23" Name="Diagram1">
+      <Diagram DiagramId="1f84e3242986445ab6259c22f72bd26c" Name="Diagram1">
         <EntityTypeShape EntityType="techshopModel.Admin" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Cart" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Category" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Customer" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="techshopModel.Delivaryman" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="techshopModel.DeliveryMan" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Employee" Width="1.5" PointX="3.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Manager" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="techshopModel.Order" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />

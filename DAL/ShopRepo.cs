@@ -47,5 +47,9 @@ namespace DAL
         {
             return db.Shops.ToList();
         }
+        public List<Shop> GetCus(int id)
+        {
+            return db.Shops.ToList();
+        }
     }
 }
