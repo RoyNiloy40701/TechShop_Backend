@@ -52,6 +52,11 @@ namespace DAL
 
             return new CustomerRepo(db);
         }
+        public static IRepository<Manager, int> ManagerDataAccess()
+        {
+
+            return new ManagerRepo(db);
+        }
 
     }
 }

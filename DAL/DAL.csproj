@@ -93,6 +93,7 @@
     <Compile Include="Manager.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>
+    <Compile Include="ManagerRepo.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>Employee.tt</DependentUpon>
     </Compile>

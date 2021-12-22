@@ -49,6 +49,7 @@
     <Compile Include="CustomerService.cs" />
     <Compile Include="DeliveryManService.cs" />
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="ManagerService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
